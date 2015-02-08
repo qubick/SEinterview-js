@@ -27,7 +27,9 @@ function main(){
 		node2 = new Node(2),
 		node3 = new Node(3),
 		node4 = new Node(3),
-		node5 = new Node(5);
+		node5 = new Node(5),
+		node6 = new Node(2),
+		node7 = new Node(6);
 
 	var list = new LinkedList(node1)
 	
@@ -35,6 +37,8 @@ function main(){
 	list.add(node2, node3);
 	list.add(node3, node4);
 	list.add(node4, node5);
+	list.add(node5, node6);
+	list.add(node6, node7);
 	//=================== create list
 
 	var hash = Array(1000) //enough big
