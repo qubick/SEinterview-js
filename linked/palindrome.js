@@ -26,7 +26,7 @@ function LinkedList(node){
 
 	this.printAll = function(){
 		var temp = this.head
-		while(temp.next){
+		while(temp){
 			console.log(temp.data)
 			temp = temp.next
 		}
@@ -40,12 +40,13 @@ function Stack(){
 
 	this.push = function(element){
 		this.array[this.topN] = element
-		//console.log(this.array[this.topN])
 		this.topN = this.topN + 1
+		//console.log(this.array[this.topN])
 	}
 	
 	this.pop = function(){
 		this.topN = this.topN - 1
+		return this.array[this.topN];
 	}
 
 }
@@ -59,14 +60,13 @@ function main(){
 		,node6 = new Node(2)
 		,node7 = new Node(1)
 
-	node5.next = node4;
+	//node5.next = node4;
 
 	var list = new LinkedList([node1, node2, node3, node4, node5, node6, node7])
 	var stack = new Stack()
 
-	var temp = list.head
 
-	var data
+	var temp = list.head
 
 	while(temp){
 		stack.push(temp.data)
@@ -74,21 +74,21 @@ function main(){
 	}
 	
 	temp = list.head
+	data = stack.pop();
 	
 	while(temp){
-		data = stack.array[stack.topN-1];
 		
+			console.log(data, temp.data)
 		if (data != temp.data){
 			//return false
-			console.log(data, temp.data)
 			return console.log("This is not a palindrome")
 		} else {
-			temp = temp.data
-			stack.pop();
+			temp = temp.next
+			data = stack.pop();
 		}
 	}
 	
-	return console.log("This is palindrome")
+	return console.log("This is a palindrome")
 }
 
 main()
