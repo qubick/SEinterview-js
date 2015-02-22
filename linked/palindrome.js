@@ -40,15 +40,12 @@ function Stack(){
 
 	this.push = function(element){
 		this.array[this.topN] = element
-		console.log(this.array[this.topN])
+		//console.log(this.array[this.topN])
 		this.topN = this.topN + 1
 	}
 	
 	this.pop = function(){
-		var res = this.array[this.topN]
-		console.log(res, 'poped')
 		this.topN = this.topN - 1
-		return res
 	}
 
 }
@@ -79,14 +76,16 @@ function main(){
 	temp = list.head
 	
 	while(temp){
-		stack.pop();
-		data = stack.array[stack.topN];
-console.log("main: data")
-		if (data != temp.data)
+		data = stack.array[stack.topN-1];
+		
+		if (data != temp.data){
 			//return false
+			console.log(data, temp.data)
 			return console.log("This is not a palindrome")
-		else
+		} else {
 			temp = temp.data
+			stack.pop();
+		}
 	}
 	
 	return console.log("This is palindrome")
