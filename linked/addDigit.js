@@ -1,3 +1,16 @@
+// Question
+// take 2 list containing one digit at a node
+// i.e. 7 -> 1 -> 2 == 217
+// add two numbers of list
+// i.e. 7 -> 1 -> 6  +  5 -> 9 -> 2  == 617 + 295
+// save output into new list as one digit at a node
+
+// Tip
+// Consider if both node are exist before add
+// take parity to make sure if the result is one digit
+// otherwise add 1 to upper digit and minus 10 at this digit
+
+
 function Node(value){
 
 	this.data = value;
@@ -55,49 +68,50 @@ function main(){
 
 	var temp1 = list1.head
 		,temp2 = list2.head
-		
-	var newData = new Node(temp1.data + temp2.data)
-		,over = false
-	var newList = new LinkedList(newData)
-
 	var i = 1
+		
+	var newData = temp1.data + temp2.data
+	if(newData < 10){
+		var over = false
+	} else {
+		var over = true
+		newData -= 10;
+	}
+
+	var newList = new LinkedList(new Node(newData))
+	
+	temp1 = temp1.next
+	temp2 = temp2.next
+
 	while(1){
 		if(temp1 && temp2){
-			data = temp1.data + temp2.data
-			if(over) {
-				data++
-				over = false
-			}
-
-			if(data < 9)
-				newList.addNode(new Node(data))
-			else {
-				over = true
-			}
+			newData = temp1.data + temp2.data
 			temp1 = temp1.next
 			temp2 = temp2.next
 		} else if (temp1 && !temp2){
 			newData = temp1.data
-			if(over) {
-				data++
-				over = false
-			}
-			newList.addNode(new Node(data))
 			temp1 = temp1.next
 		} else if (!temp1 && temp2){
 			newData = temp2.data
-			if(over) {
-				data++
-				over = false
-			}
-			newList.addNode(new Node(newData))
 			temp2 = temp2.next
-		} else
+		} else {
 			break
-		console.log(i++, 'th : ')
-		newList.printAll()
+		}
+
+		//create node
+		if(over) {
+			newData++
+			over = false
+		}
+
+		if(newData < 10)
+			newList.addNode(new Node(newData))
+		else {
+			over = true
+			newList.addNode(new Node(newData-10))
+		}
 	}
-	return
+	return newList.printAll()
 }
 
 main()
