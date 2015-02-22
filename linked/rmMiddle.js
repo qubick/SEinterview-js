@@ -52,7 +52,7 @@ function main(){
 
 
 	var list = new LinkedList([node1, node2, node3, node4, node5, node6, node7]);
-	var mid = node2;
+	var mid = node6;
 	//creation of list
 
 	var runner = mid;
