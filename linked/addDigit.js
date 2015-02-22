@@ -23,7 +23,7 @@ function LinkedList(node){
 		this.head = node[0];
 		var tmp = this.head;
 		
-		for(var i=0; i<node.length; i++){
+		for(var i=1; i<node.length; i++){
 			tmp.next = node[i]
 			tmp = tmp.next
 		}
@@ -63,8 +63,8 @@ function main(){
 	var list1 = new LinkedList([node1, node2, node3])
 		,list2 = new LinkedList([node4, node5, node6, node7])
 
-//	list1.printAll()
-//	list2.printAll()
+	list1.printAll()
+	list2.printAll()
 
 	var temp1 = list1.head
 		,temp2 = list2.head
