@@ -50,6 +50,7 @@ function Stack(){
 		this.topN = this.topN - 1
 		return res
 	}
+
 }
 
 function main(){
@@ -76,9 +77,11 @@ function main(){
 	}
 	
 	temp = list.head
-data = stack.pop()
-console.log("main: ",data)
+	
 	while(temp){
+		stack.pop();
+		data = stack.array[stack.topN];
+console.log("main: data")
 		if (data != temp.data)
 			//return false
 			return console.log("This is not a palindrome")
