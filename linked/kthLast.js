@@ -44,9 +44,11 @@ function Node(value){
 	list.add(node8, node9);
 	list.add(node9, node10);
 	//============= create linked list
-function main(){
+function main(argc, argv){
+	
+	var cnt = 0
+		,k	= 6
 
-	var cnt = 0;
 	var temp = list.head;
 	while(temp){
 		cnt++
@@ -61,3 +63,4 @@ function main(){
 
 }
 
+main(3)
