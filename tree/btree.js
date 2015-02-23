@@ -1,6 +1,5 @@
 function Node(value){
 	this.data = value
-	this.parent = null
 	this.left = null
 	this.right = null
 }
@@ -9,17 +8,16 @@ function Tree(node){
 
 	this.head = node
 
-	this.setParent = function(node){
-		this.parent = node
-	}
-
 	this.addChild = function(node){
-		node.setParent(this)
-		
-		if(!this.left)
-			this.left = node
-		else if(!this.right)
-			this.right = node
+		var temp = this.head
+
+		if(!temp.left){
+			console.log('moved to left child')
+			temp.left = node
+		} else if(!temp.right) {
+			console.log('moved to right child')
+			temp.right = node
+		}
 	}
 
 	this.getChildren = function(){
@@ -47,8 +45,9 @@ function main(){
 	
 	var tree = new Tree(node1)
 
-	node.addChild(node2)
-	return console.log(tree.head.left.data)
+	tree.addChild(node2)
+	tree.addChild(node3)
+	return console.log(tree.head.right.data)
 
 }
 
