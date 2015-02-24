@@ -11,12 +11,22 @@ function Tree(node){
 	this.addChild = function(node){
 		var temp = this.head
 
-		if(!temp.left){
-			console.log('moved to left child')
-			temp.left = node
-		} else if(!temp.right) {
-			console.log('moved to right child')
-			temp.right = node
+		while(1){
+			if(node.data < temp.data){
+				if(!temp.left){
+					temp.left = node
+					return
+				} else {
+					temp = temp.left
+				}
+			} else if(node.data > temp.data){
+				if(!temp.right){
+					temp.right = node
+					return
+				} else {
+					temp = temp.right
+				}
+			}
 		}
 	}
 
@@ -43,11 +53,16 @@ function main(){
 		,node6 = new Node(6)
 		,node7 = new Node(7)
 	
-	var tree = new Tree(node1)
+	var tree = new Tree(node3)
 
+	tree.addChild(node4)
+	tree.addChild(node7)
+	tree.addChild(node6)
+	tree.addChild(node5)
+	tree.addChild(node1)
 	tree.addChild(node2)
-	tree.addChild(node3)
-	return console.log(tree.head.right.data)
+
+	return console.log(tree.head.left.right.data)
 
 }
 
