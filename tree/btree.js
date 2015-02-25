@@ -46,24 +46,17 @@ function Tree(node){
 
 	this.preorder = function(node){
 		var prent = node;
-		if(prent.left)
-			var child = prent.left;
-		else if(prent.right)
-			var child = prent.right;
-
 		console.log(prent.data) //print root first
-		
-			if(child.left){
-				prent = child
-				child = child.left
-				child.preorder()
-			} else if (child.right){
-				prent = child
-				child = child.right
-				this.preorder(child)
+	
+	//	while(1){
+			if(prent.left){
+				this.preorder(prent.left)
+			} if (prent.right){
+				this.preorder(prent.right)
 			} else { //no child exists
 				return
 			}
+	//	}
 	}
 }
 
@@ -86,7 +79,8 @@ function main(){
 	tree.addChild(node2)
 
 	//return console.log(tree.head.left.right.data)
-	
+
+	return tree.preorder(tree.head)
 }
 
 main()
