@@ -28,6 +28,7 @@ function Tree(node){
 				}
 			}
 		}
+		//what if node is instanceof(Array)?
 	}
 
 	this.getChildren = function(){
@@ -91,9 +92,9 @@ function Tree(node){
 			} if(temp.right){
 				this.search(temp.right, value)
 			} else {
-				return console.log(value, "not found")
+				return //not found, go upper stack 
+				console.log(value, "not found")
 			}
-				
 		}
 }
 
@@ -125,7 +126,7 @@ function main(){
 	tree.addChild(node11)
 	tree.addChild(node12)
 
-	//check if the data inserted right
+	//check if the data inserted correctly
 	//return console.log(tree.head.right.right.right.data)
 
 	var res = tree.search(tree.head, 13)
