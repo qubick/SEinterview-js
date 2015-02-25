@@ -37,10 +37,33 @@ function Tree(node){
 			var right = this.right.data
 		return [left,right]
 	}
-
+/*
 	this.removeChildren = function(){
 		this.left = null
 		this.right = null
+	}
+*/
+
+	this.preorder = function(node){
+		var prent = node;
+		if(prent.left)
+			var child = prent.left;
+		else if(prent.right)
+			var child = prent.right;
+
+		console.log(prent.data) //print root first
+		
+			if(child.left){
+				prent = child
+				child = child.left
+				child.preorder()
+			} else if (child.right){
+				prent = child
+				child = child.right
+				this.preorder(child)
+			} else { //no child exists
+				return
+			}
 	}
 }
 
@@ -62,8 +85,8 @@ function main(){
 	tree.addChild(node1)
 	tree.addChild(node2)
 
-	return console.log(tree.head.left.right.data)
-
+	//return console.log(tree.head.left.right.data)
+	
 }
 
 main()
