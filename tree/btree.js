@@ -81,6 +81,18 @@ function Tree(node){
 			this.inorder(prent.right)
 		}
 	}
+
+	this.search = function(node,value){
+		var temp = node
+			if(value === temp.data){
+				console.log(value, 'found')
+				return
+			} if(temp.left){
+				this.search(temp.left, value)
+			} if(temp.right){
+				this.search(temp.right, value)
+			} 
+		}
 }
 
 function main(){
@@ -111,9 +123,11 @@ function main(){
 	tree.addChild(node11)
 	tree.addChild(node12)
 
+	//check if the data inserted right
 	//return console.log(tree.head.right.right.right.data)
 
-	return tree.preorder(tree.head)
+	return tree.search(tree.head, 1)
+	//return tree.preorder(tree.head)
 	//return tree.postorder(tree.head)
 	//return tree.inorder(tree.head)
 }
