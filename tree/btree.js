@@ -58,6 +58,18 @@ function Tree(node){
 			}
 	//	}
 	}
+
+	this.postorder = function(node){
+		var prent = node;
+
+		if(prent.left){
+			this.postorder(prent.left)
+		} if(prent.right){
+			this.postorder(prent.right)
+		} else {
+			console.log(prent.data)
+		}
+	}
 }
 
 function main(){
@@ -80,7 +92,9 @@ function main(){
 
 	//return console.log(tree.head.left.right.data)
 
-	return tree.preorder(tree.head)
+	//return tree.preorder(tree.head)
+	return tree.postorder(tree.head)
+
 }
 
 main()
