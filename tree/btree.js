@@ -66,8 +66,19 @@ function Tree(node){
 			this.postorder(prent.left)
 		} if(prent.right){
 			this.postorder(prent.right)
-		} else {
-			console.log(prent.data)
+		}	
+		console.log(prent.data)
+	}
+
+	this.inorder = function(node){
+		var prent = node;
+
+		if(prent.left){
+			this.inorder(prent.left)
+		}
+		console.log(prent.data)
+		if(prent.right){
+			this.inorder(prent.right)
 		}
 	}
 }
@@ -93,8 +104,8 @@ function main(){
 	//return console.log(tree.head.left.right.data)
 
 	//return tree.preorder(tree.head)
-	return tree.postorder(tree.head)
-
+	//return tree.postorder(tree.head)
+	return tree.inorder(tree.head)
 }
 
 main()
