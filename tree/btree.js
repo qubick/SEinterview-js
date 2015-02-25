@@ -85,13 +85,15 @@ function Tree(node){
 	this.search = function(node,value){
 		var temp = node
 			if(value === temp.data){
-				console.log(value, 'found')
-				return
+				return true
 			} if(temp.left){
 				this.search(temp.left, value)
 			} if(temp.right){
 				this.search(temp.right, value)
-			} 
+			} else {
+				return console.log(value, "not found")
+			}
+				
 		}
 }
 
@@ -126,7 +128,11 @@ function main(){
 	//check if the data inserted right
 	//return console.log(tree.head.right.right.right.data)
 
-	return tree.search(tree.head, 1)
+	var res = tree.search(tree.head, 13)
+	if(res) 
+		return console.log("found")
+	else
+		return console.log("not found")
 	//return tree.preorder(tree.head)
 	//return tree.postorder(tree.head)
 	//return tree.inorder(tree.head)
