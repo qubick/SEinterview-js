@@ -13,6 +13,21 @@ function balanced_bracket(s){
 	console.log('Balanced')
 }
 
+function balanced_short(s){
+	var balance = 0
+	Balnced = "Balanced"
+
+	for(var i=0; i<s.length; i++){
+		(s[i] == '(')?balance++:balance--
+		if(balance <0)
+			Balanced =  "Unbalanced"
+			break;
+	}
+	if(balance) Balanced = "Unbalanced";
+
+	console.log(Balanced)
+}
+
 function Stack(){
 	this.top = 0;
 	this.array = []
@@ -31,5 +46,6 @@ function Stack(){
 	}
 }
 
-s = '(()())'
-balanced_bracket(s)
+s = '(()(()))'
+//balanced_bracket(s)
+balanced_short(s)
