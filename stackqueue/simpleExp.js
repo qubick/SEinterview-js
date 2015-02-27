@@ -1,12 +1,17 @@
+
+expr = '(2+2)-(3-(6-5))-4'
+simpleExp(expr);
+
 function simpleExp(){
     var stack = new Stack();
     var res = 0 
-       
+
     for(var i=0; i<expr.length; i++){
         if(expr[i] != ')'){
             stack.push(expr[i])
-            console.log(expre[i], 'pushed')
+            console.log(expr[i], 'pushed')
         } else {
+            console.log('start pop')
             var a = stack.pop();
             var oper = stack.pop();
             var b = stack.pop();
@@ -20,6 +25,8 @@ function simpleExp(){
             } else if (oper === '/'){
                 res = a/b
             }
+        console.log(res);
+        
             var flag = stack.pop() //pop open bracket
             if(!flag){
                 console.log(res);
@@ -44,4 +51,4 @@ function Stack(){
             return false
         return this.value[this.top--]
     }
-}Copy-paste code here to remove the line numbers.
+}
