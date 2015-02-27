@@ -1,8 +1,11 @@
-var stack = new Stack();
-    var res = 0    
+function simpleExp(){
+    var stack = new Stack();
+    var res = 0 
+       
     for(var i=0; i<expr.length; i++){
         if(expr[i] != ')'){
             stack.push(expr[i])
+            console.log(expre[i], 'pushed')
         } else {
             var a = stack.pop();
             var oper = stack.pop();
