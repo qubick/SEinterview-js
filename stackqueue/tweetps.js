@@ -11,6 +11,12 @@ function tweets_per_second(tps, k) {
         for(var i=0; i<tps.length; i++){
             queue.push(new Node(tps[i]))
         }
+        
+        for(var j=0; j<tps.length-3; i++){
+            var arr = queue.pop();
+            if(arr[0]>arr[1]?var max=arr[0]:var max=arr[1])
+                if(max>arr[2]?console.log(max):console.log(arr[2])
+        }
     }
 }
 
@@ -23,18 +29,14 @@ function Queue(){
         if(this.head === this.tail){
             this.head.next = node
             this.tail = node
-        } else if (this.head.next === this.tail){
+        } else {
             this.tail.next = node
-            this.tail = node
-        } else{
-            this.tail.next = node
-            this.head = this.head.next
             this.tail = node
         }
     }
     
     this.pop = function(){
-        var res = this.head.data
+        var res = [this.head.data, this.head.next.data, this.head.next.data]
         this.head = this.head.next
         return res
     }
@@ -58,4 +60,3 @@ function Node(value){
     this.data = value
     this.next = null
 }
-
