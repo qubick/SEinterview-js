@@ -4,42 +4,31 @@ function tweets_per_second(tps, k) {
     // Example: console.log("Hello world!");
     
     var queue = new Queue()
-
     var log = 0
     
-    for(var i=0; i<tps.length; i++){
+    for(var i=0; i<=tps.length-k; i++){
         queue.push(new Node(tps[i]))
-    }
-    
-    for(var j=1; j<=k; j++){
-        var arr = queue.pop(j)
+        var res = queue.pop(i+1, k)
+        console.log(res.length)
         var max = 0
-        for(var l=0; l<arr.length; l++){
-            if(arr[l]>max)
-                max = arr[l]
+        
+        for(var j=0; j<res.length; j++){
+            if(max < res[j])
+                max = res[j]
+            console.log(res)
         }
-        console.log(max)
+        //console.log(max)
     }
-    for(var j=k+1; j<=tps.length-k; j++){
-        var arr = queue.pop(k)
+    for(var i=tps.length-k+1; i<tps.length; i++){
+        queue.push(new Node(tps[i]))
+        var res = queue.pop(i, k)
         var max = 0
-        for(var l=0; l<arr.length; l++){
-            if(arr[l]>max){
-                max = arr[l]
-            }
+        
+        for(var j=0; j<res.length; j++){
+            if(max < res[j])
+                max = res[j]
         }
-        console.log(max)
-    }
-    for(var j=k; j>0; j--){
-        //move head to back to take node from later part of the queue
-        var arr = queue.pop(j)
-        var max = 0
-        for(var l=0; l<arr.length; l++){
-            if(arr[l]>max){
-                max = arr[l]
-            }
-        }
-        console.log(max)
+        //console.log(max)
     }
 }
 
@@ -60,9 +49,10 @@ function Queue(){
             this.tail.next = node
             this.tail = node
         }
+        this.length++
     }
     
-    this.pop = function(num){
+    this.pop = function(num, k){
         var res = []
         var temp = this.head
         
@@ -70,8 +60,15 @@ function Queue(){
             res[i] = temp.data
             if(temp.next){
                 temp = temp.next
-            }else
+                if(this.length > k)
+                    //console.log(this.length, k)
+                    this.head = this.head.next
+            }else{
+                if(this.length > k)
+                    //console.log(this.length, k)
+                    this.head = this.head.next
                 break
+            }
         } 
         return res
     }
@@ -95,8 +92,7 @@ function Node(value){
     this.data = value
     this.next = null
 }
-/*
+
 var tps = [6, 9, 4, 7, 4, 1]
 k = 3
 tweets_per_second(tps, k)
-*/
