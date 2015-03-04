@@ -1,22 +1,34 @@
 function typeahead(usernames, queries) {
-    // Write your code here
-    // To print results to the standard output please use console.log()
-    // Example: console.log("Hello world!");
     
     var found = false
+    var temp = ''
+    
     for(var i=0; i<queries.length; i++){
-        var pattern = new RegExp(queries[j], 'i')
+        var pattern = new RegExp("^" + queries[i], 'i')
         
         for(var j=0; j<usernames.length; j++){    
-            if(usernames[j].match(pattern))
-                console.log(usernames[j])
-            else
-                console.log('-1')
+            if(usernames[j].match(pattern)){
+                if(!found){
+                    temp = usernames[j]
+                    found = true
+                } else { //found multiple usernames
+                    if(temp.toLowerCase() > usernames[j].toLowerCase())
+                        temp = usernames[j]
+                }
+            }
+        }
+        if(!found){
+            console.log('-1') 
+        } else {
+            console.log(temp)
+            found = false
+            temp = ''
         }
     }
 }
 
+
 var names = ['james', 'jBlank']
 var queries = ['j', 'jm', 'jbl', 'JB']
 
-type_head(names, queries)
+typeahead(names, queries)
