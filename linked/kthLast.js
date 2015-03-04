@@ -21,28 +21,16 @@ function Node(value){
 	this.data = value;
 	this.next = null;
 }
-
-	var node1 = new Node(1),
-		node2 = new Node(2),
-		node3 = new Node(3),
-		node4 = new Node(4),
-		node5 = new Node(5),
-		node6 = new Node(6),
-		node7 = new Node(7),
-		node8 = new Node(8),
-		node9 = new Node(9)
-		node10 = new Node(10);
+	var node1 = new Node(1)
+	var list = new LinkedList(node1)
+	var prevNode = node1
 	
-	var list = new LinkedList(node1);
-	list.add(node1, node2);
-	list.add(node2, node3);
-	list.add(node3, node4);
-	list.add(node4, node5);
-	list.add(node5, node6);
-	list.add(node6, node7);
-	list.add(node7, node8);
-	list.add(node8, node9);
-	list.add(node9, node10);
+	for(var i=2; i<=10; i++){
+		var curNode = new Node(i)
+		list.add(prevNode, curNode)
+		prevNode = curNode
+	}
+	
 	//============= create linked list
 function main(argc, argv){
 	
