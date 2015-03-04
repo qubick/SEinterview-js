@@ -1,7 +1,13 @@
+//*******************************************
+// find pair product (any combination of two elements) from the given array
+// which is divisible by 3
+// which is the greatst among them
+//*******************************************
+
 function max_prod(v){
 
 	v.sort(function(a,b){return b-a});
-console.log(v)
+
 
 	if(!v[0]%3)
 		console.log(v[0]*v[1])
