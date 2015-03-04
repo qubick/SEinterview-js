@@ -1,6 +1,6 @@
 function sort_words(s){
-	var spliter = new RegExp("[,\s]");
-	var obj = s.split(spliter)
+	//var spliter = new RegExp("[,\s]");
+	var obj = s.split(/[\s,]/g)
 		,newObj = []
 		,cnt = 0
 	
@@ -9,7 +9,7 @@ function sort_words(s){
 			newObj[cnt++] = obj[i].trim()
 	}
 
-//	newObj = newObj.sort(function(a,b){return b-a})
+	newObj = newObj.sort()
 	console.log(newObj)
 }
 
