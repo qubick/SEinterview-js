@@ -21,6 +21,13 @@ function Node(value){
 	this.data = value;
 	this.next = null;
 }
+
+
+function kth_last_element(n){
+	
+	var cnt = 0
+		,k	= n
+	
 	var node1 = new Node(1)
 	var list = new LinkedList(node1)
 	var prevNode = node1
@@ -30,12 +37,9 @@ function Node(value){
 		list.add(prevNode, curNode)
 		prevNode = curNode
 	}
-	
+
+	//list.printAll()
 	//============= create linked list
-function main(argc, argv){
-	
-	var cnt = 0
-		,k	= 6
 
 	var temp = list.head;
 	while(temp){
@@ -51,4 +55,4 @@ function main(argc, argv){
 
 }
 
-main(3)
+kth_last_element(7)
