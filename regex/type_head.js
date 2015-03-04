@@ -1,31 +1,32 @@
 function typeahead(usernames, queries) {
     
-    var found = false
-    var temp = ''
+    var found = 0
+    var hash = []
     
     for(var i=0; i<queries.length; i++){
         var pattern = new RegExp("^" + queries[i], 'i')
         
         for(var j=0; j<usernames.length; j++){    
             if(usernames[j].match(pattern)){
-                if(!found){
-                    temp = usernames[j]
-                    found = true
-                } else { //found multiple usernames
-                    if(temp.toLowerCase() > usernames[j].toLowerCase())
-                        temp = usernames[j]
+                if(hash[pattern] === undefined){
+                    hash[pattern] = usernames[j]
+                } else {
+                    if(hash[pattern].toLowerCase() > usernames[j].toLowerCase())
+                        hash[pattern] = usernames[j]
                 }
             }
         }
-        if(!found){
+        if(hash[pattern] === undefined){
             console.log('-1') 
         } else {
             console.log(temp)
-            found = false
+            hash[pattern] = undefined
             temp = ''
         }
     }
 }
+
+
 
 
 var names = ['james', 'jBlank']
