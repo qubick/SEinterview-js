@@ -1,3 +1,9 @@
+//**************************************
+// delete the node in the middle of list
+// when givne the access to only to that node
+// the head is not given
+//**************************************
+
 function LinkedList(node){
 	//this.head = node;
 	
