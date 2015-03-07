@@ -1,3 +1,6 @@
+//build adjacent style graph
+//do depth first search
+
 function graph(n){
 
 	this.visit = new Array(n)
