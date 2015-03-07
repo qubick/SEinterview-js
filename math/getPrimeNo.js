@@ -1,7 +1,4 @@
 function get_prime_numbers(n) {
-    // Write your code here
-    // To print results to the standard output please use console.log()
-    // Example: console.log("Hello world!");
     
     var sieve = [], i, j, primes = [];
     for (i = 2; i < n; ++i) {
@@ -17,10 +14,8 @@ function get_prime_numbers(n) {
 }
 
 function get_prime_numbers_other(n) {
-    // Write your code here
-    // To print results to the standard output please use console.log()
-    // Example: console.log("Hello world!");
-    var isPrime = 1;
+    
+	 var isPrime = 1;
     var myPrimes = [];
     for (i = 2; i < n; i++){
         isPrime = 1;
