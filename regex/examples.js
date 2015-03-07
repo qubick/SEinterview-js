@@ -1,3 +1,5 @@
+//http://regexlib.com/CheatSheet.aspx?AspxAutoDetectCookieSupport=1
+
 function sample_practice(str){
 	var res = str.replace(/[Uu]niversity/, "highschool")
 
