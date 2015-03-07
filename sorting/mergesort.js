@@ -16,9 +16,11 @@ function merge_arrays(a, b) {
             runA = runA.next
 		  }else{
 				if(runA.next){
+			//console.log(runA.data)
             	var temp = runA.next
             	runA.next = runB
             	runB = runB.next
+					runA.next.next = temp
             	runA = temp
 				}else {
 					runA.next = runB
@@ -56,6 +58,12 @@ function Node(value){
     this.next = null
 }
 
+function short_merge_arrays(a,b){
+	console.log(a.concat(b).sort(function(c,d){return c-d}).join(" "))
+}
+
+
 a = [2,3,7,8,8]
 b = [7,8,13]
-merge_arrays(a,b)
+//merge_arrays(a,b)
+short_merge_arrays(a,b)
