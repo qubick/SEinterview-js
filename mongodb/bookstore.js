@@ -64,9 +64,18 @@ function store_book(title, authors, pub_name, pub_location, next) {
                 "authors":authors,
                 "publisher_id":pubId
                 } //end of json doc
-            dbPubs.publishers.insert(book, function(err, res){
-                if(!err)
-                    return pubId
+            
+				dbPubs.publishers.insert(book, cb()){
+                if(!err){
+                	var pubId = dbPubs.publishers.findOne({
+							"title":title
+							}, function(err, doc){
+								pubId = doc._id.toString()
+							});
+					 		
+							return pubId
+
+						}
             });
         } //end of if
     })
