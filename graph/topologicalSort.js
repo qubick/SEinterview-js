@@ -56,7 +56,7 @@ function Node(value){
 
 function Graph(node){
 	var stack = new Stack()
-	
+
 	this.addNext = function(node1, node2){
 		node1.next.push(node2)
 	}
@@ -68,11 +68,12 @@ function Graph(node){
 				node.visited = true
 			
 				var nabors = node.next
+
 				nabors.forEach(function(n){
 					stack.push(n)
 				})
 
-				var trav = stack.pop()
+				var trav1 = stack.pop()
 
 				if(trav != null)
 					this.dfs(trav)
