@@ -85,7 +85,13 @@ function main(){
 	graph.addNode(node6, [node3, node7])
 	graph.addNode(node7, [node3, node5, node6, node8])
 	graph.addNode(node8, [node7])
-	
+
+	// 1 - 2
+	// |   |
+	// 4 - 3 - 5
+	//     | \ |
+	//     6 - 7 - 8
+
 	//console.log(node3.nabors)
 	graph.bfs(node5)
 }
