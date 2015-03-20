@@ -91,7 +91,12 @@ function main(){
 	graph.addNabor(node5, [node3, node4, node6])
 	graph.addNabor(node6, [node3, node5])
 
-	//console.log(cost(node1,node5))
+	// 1 - 2
+	// |   |
+	// 3 - 4
+	// | X
+	// 5 - 6
+	
 	graph.dfs(node2)
 }
 
