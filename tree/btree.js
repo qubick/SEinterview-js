@@ -85,17 +85,47 @@ function Tree(node){
 
 	this.search = function(node,value){
 		var temp = node
+	
 			if(value === temp.data){
-				return true
-			} if(temp.left){
-				this.search(temp.left, value)
-			} if(temp.right){
-				this.search(temp.right, value)
-			} else {
-				return //not found, go upper stack 
-				console.log(value, "not found")
+				//console.log(value, temp.data)
+				return console.log("found")
+			} 
+			
+			else if(value < temp.data){
+				if(temp.left){
+					this.search(temp.left, value)
+				} else {
+					return false
+				}
 			}
-		}
+
+			else if(value > temp.data){
+				if(temp.right){
+					this.search(temp.right, value)
+				} else {
+					return false//not found, go upper stack 
+				}
+			}
+
+			else
+				return console.log("not found")
+				//console.log(value, "not found")
+	}
+
+	this.maxHeight = function(node){
+	
+		if(node.left)
+			var leftH = this.maxHeight(node.left)
+		else
+			var leftH = 0
+
+		if(node.right)
+			var righH = this.maxHeight(node.right)
+		else
+			var righH = 0
+
+		return (leftH > righH)? leftH +1 : righH +1
+	}
 }
 
 function main(){
@@ -111,9 +141,24 @@ function main(){
 		,node10 = new Node(18)
 		,node11 = new Node(23)
 		,node12 = new Node(3)
+		,node13 = new Node(9)
 	
 	var tree = new Tree(node1)
 
+	/*
+	               15
+						/\
+					  5  16
+					 /\  /\
+					3 12   20
+					  /\   /\
+					10 13 18 23
+					/
+				  6
+				   \
+				    7
+	*/
+	
 	tree.addChild(node2)
 	tree.addChild(node3)
 	tree.addChild(node4)
@@ -125,14 +170,16 @@ function main(){
 	tree.addChild(node10)
 	tree.addChild(node11)
 	tree.addChild(node12)
+	tree.addChild(node13)
+	
 
 	//check if the data inserted correctly
 	//return console.log(tree.head.right.right.right.data)
 
-	var res = tree.search(tree.head, 13)
-	if(res) 
-		return console.log("found")
-	else
+	console.log(tree.maxHeight(tree.head))
+
+	var res = tree.search(tree.head, 33)
+	if(res === false) 
 		return console.log("not found")
 	//return tree.preorder(tree.head)
 	//return tree.postorder(tree.head)
