@@ -1,3 +1,6 @@
+//given a string and a substring of it
+//find the position where the substring occured in original string
+
 function find_substr(s,t){
 
 	var pos = 0

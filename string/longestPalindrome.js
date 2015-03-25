@@ -1,3 +1,15 @@
+// given a string, find the longest palindrome
+//
+//    upper ->
+//      |
+//  n1 n2 n3 n4 n5 ...
+//      |
+//  <- lower
+//
+// move upper and lower index indicator in opposite direction
+// break if character is different
+// count if match, save pos and max count
+
 function longest_palindrome(s){
 
 	var cnt = []

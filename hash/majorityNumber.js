@@ -1,8 +1,9 @@
+// given array of numbers
+// return the number occured the most frequent
+
 function majority(v) {
-    // Write your code here
-    // To print results to the standard output please use console.log()
-    // Example: console.log("Hello world!");
-    var hash = []
+    
+	 var hash = []
     var max = 0, pos = 0
     for(var i=0; i<v.length; i++){
 	 	if(hash[v[i]] === undefined)
