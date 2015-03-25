@@ -1,4 +1,5 @@
-//given a rational, decimal vale, write a function prints out the simplest possible faction
+//given a rational, decimal value 
+//write a function prints out the simplest possible faction
 
 function compute_fraction(s){
 	var arr = s.split('.')

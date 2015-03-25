@@ -1,3 +1,4 @@
+//given integer, count number of 1s when it was converted in binary
 function countOnes(n){
 	var s = n.toString(2)
 	var cnt = 0

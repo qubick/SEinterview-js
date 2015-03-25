@@ -1,3 +1,6 @@
+//given a string
+//count the number of vowels in case no-tsensitive
+
 function count_vowels(s){
 
 /*

@@ -1,4 +1,5 @@
-//Given an array of integer numbers print to the standard output the nth circular permutation to the right.
+//Given an array of integer numbers 
+//print to the standard output the nth circular permutation to the right.
 //Expected complexity: O(N)
 
 

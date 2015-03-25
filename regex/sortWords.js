@@ -1,3 +1,7 @@
+// given strings of mixed numbers,
+// sort words in lexically order
+
+
 function sort_words(s){
 	//var spliter = new RegExp("[,\s]");
 	var obj = s.split(/[\s,]/g)
