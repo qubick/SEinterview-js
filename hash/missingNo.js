@@ -1,3 +1,6 @@
+// given input array of min and max,
+// find missing value between the two
+
 function find_missing_number(v){
 
 	var max = 0
@@ -16,5 +19,5 @@ function find_missing_number(v){
 		 	console.log(j)
 }
 
-v = [5, 4, 1, 6]
+v = [5, 4, 2, 6]
 find_missing_number(v);

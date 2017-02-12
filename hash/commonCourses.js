@@ -1,4 +1,5 @@
-// print courses found from both input arrays, in ascending order
+// print courses found from both input arrays,
+// in ascending order
 
 function common_courses(courses1, courses2){
 

@@ -9,4 +9,4 @@ function splice_ex(inputPos, numInput, origArray, data){
 
 var input = ["Banana", "Orange", "Apple", "Mango", "Tomato"]
 var insert = ["lemon", "kiwi"]
-splice_ex(2,2,input, insert)
+splice_ex(3,2,input, insert)

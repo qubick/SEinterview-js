@@ -1,3 +1,5 @@
+// find the max streak of ascending numbers 
+
 function longest_improvements(grade){
 
 	var max = 0
@@ -17,6 +19,6 @@ function longest_improvements(grade){
 	console.log(max)
 }
 
-grades = [9, 7, 8, 2, 5, 5, 8, 7]
+var grades = [9, 7, 8, 2, 5, 5, 8, 5, 6, 7, 8, 9]
 
 longest_improvements(grades)
