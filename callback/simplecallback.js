@@ -2,7 +2,7 @@ function mycallback(err, data){
   try{
     console.log("this comes first: ", data)
   }
-  catch(err){
+  catch(InterruptedException){
     console.log(err)
   }
 }
